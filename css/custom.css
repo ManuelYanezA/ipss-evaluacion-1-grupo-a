@@ -1,3 +1,13 @@
+.productos-grid{
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(250px, 1fr));
+    gap: 20px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .producto-card {
     width: 100%;
 
