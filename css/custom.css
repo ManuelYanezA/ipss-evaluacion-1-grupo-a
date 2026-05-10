@@ -38,3 +38,24 @@
     color: red;
     margin-top: 8px;
 }
+
+.header-container {
+    padding: 20px;
+    background-color: white;
+}
+
+.btn-buscar-producto {
+    background-color: white;
+    color: rgb(180,35,35);
+    border: 2px solid rgb(180,35,35);
+}
+.btn-buscar-producto:hover {
+    background-color: rgb(180,35,35);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.barra-busqueda {
+    align-items: center;
+    gap: 10px;
+}
