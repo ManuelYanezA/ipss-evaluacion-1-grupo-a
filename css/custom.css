@@ -88,9 +88,9 @@
 
 .hero-content {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
-    font-size: 2.5rem;
     color: white;
 }
 
@@ -104,14 +104,32 @@
 .call-to-action-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: red;
+    background-color: green;
     color: white;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 1rem;
+    white-space: nowrap;
 }
 
 .call-to-action-btn:hover {
-    background-color: darkred;
+    background-color: darkgreen;
+}
+
+.hero-bottom-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.5;
 }
