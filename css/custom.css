@@ -97,24 +97,23 @@
 .hero-container {
     max-width: 2700px;
     margin: 0 auto;
-    background-color: red;
+    background-color: rgb(180, 35, 35);
     padding: 0 1rem;
 }
 
 .call-to-action-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: green;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(180,35,35);
     border-radius: 8px;
-    text-decoration: none;
     font-weight: bold;
     margin-top: 1rem;
-    white-space: nowrap;
+    transition: background-color 0.3s ease; /*Suaviza el cambio de color al hacer el hover*/
 }
 
 .call-to-action-btn:hover {
-    background-color: darkgreen;
+    background-color: rgb(230, 230, 230);
 }
 
 .hero-bottom-cta {
