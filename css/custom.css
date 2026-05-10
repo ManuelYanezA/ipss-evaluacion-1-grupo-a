@@ -42,20 +42,41 @@
 .header-container {
     padding: 20px;
     background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo {
+    margin: 0;
+    color: rgb(180,35,35);
+}
+
+.busqueda-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+}
+
+.barra-busqueda {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid rgb(180,35,35);
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 .btn-buscar-producto {
     background-color: white;
     color: rgb(180,35,35);
     border: 2px solid rgb(180,35,35);
+    border-radius: 5px;
+    padding: 12px 20px;
 }
 .btn-buscar-producto:hover {
     background-color: rgb(180,35,35);
     color: white;
     transition: background-color 0.3s ease;
-}
-
-.barra-busqueda {
-    align-items: center;
-    gap: 10px;
 }
