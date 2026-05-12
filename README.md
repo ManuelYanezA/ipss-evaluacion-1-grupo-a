@@ -1,22 +1,27 @@
-# [Nombre del Proyecto]
+# DistribuidorOnline
 > Proyecto del Módulo 1 — HTML + CSS + JS · Diplomado Fullstack IPSS
 ## Integrantes
 - Cristian Espinoza Muñoz
 - Manuel Yáñez Arias
 ## Descripción
-[2-3 líneas sobre qué es el proyecto]
+Una tienda online donde el usuario podrá encontrar productos de todo tipo.
 ## Demo
-- Sitio desplegado: [URL de GitHub Pages si aplica]
+- Sitio desplegado: https://manuelyaneza.github.io/ipss-evaluacion-1-grupo-a/
 - Capturas:
-![Hero](docs/hero.png)
+
 ## Cómo correr localmente
-9
 ```bash
 git clone https://github.com/ManuelYanezA/ipss-evaluacion-1-grupo-a.git
 cd ipss-evaluacion-1-grupo-a
-# Abrir index.html en el navegador
-# O con un servidor:
-python3 -m http.server 8000
+#En Windows
+start index.html
+#En MacOs
+open index.html
+#En Linux
+xdg-open index.html
+#Desde VSCode
+Instalar la extensión Live Server
+Click derecho al archivo index.html y hacer click en "Open with Live Server"
 ```
 ## Estructura del proyecto
 ```
