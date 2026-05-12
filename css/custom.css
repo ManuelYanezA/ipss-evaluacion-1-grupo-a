@@ -38,3 +38,97 @@
     color: red;
     margin-top: 8px;
 }
+
+.carrusel-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hero-card {
+    min-width: 250px;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.hero-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    color: white;
+}
+
+.hero-container {
+    max-width: 2700px;
+    margin: 0 auto;
+    background-color: rgb(180, 35, 35);
+    padding: 0 1rem;
+}
+
+.call-to-action-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(180,35,35);
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease; /*Suaviza el cambio de color al hacer el hover*/
+}
+
+.call-to-action-btn:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.hero-bottom-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.5;
+}
