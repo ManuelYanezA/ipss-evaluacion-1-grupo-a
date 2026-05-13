@@ -98,7 +98,7 @@
     max-width: 2700px;
     margin: 0 auto;
     background-color: rgb(180, 35, 35);
-    padding: 0 1rem;
+    padding: 1rem 1rem;
 }
 
 .call-to-action-btn {
@@ -131,4 +131,16 @@
     font-size: 1.2rem;
     max-width: 600px;
     line-height: 1.5;
+}
+
+.carrusel-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
 }
