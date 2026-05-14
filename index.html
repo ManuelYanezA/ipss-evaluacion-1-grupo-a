@@ -32,13 +32,13 @@
                         </li>
                         <li>
                             <div class="d-flex gap-2">
-                                <button type="button" class="btn btn-outline-dark" onclick="setNavbarTheme('light')">Claro</button>
-                                <button type="button" class="btn btn-dark" onclick="setNavbarTheme('dark')">Oscuro</button>
-                                <button type="button" class="btn text-white" style="background-color: rgb(180,35,35);" onclick="setNavbarTheme('red')">Rojo</button>
+                                <button id="lightThemeBtn" type="button" class="btn btn-outline-dark" style="background-color: white; color: black; border-color:black;">Claro</button>
+                                <button id="darkThemeBtn" type="button" class="btn btn-dark" style="background-color: black; color: white; border-color: black;">Oscuro</button>
+                                <button id="redThemeBtn" type="button" class="btn text-white" style="background-color: rgb(180,35,35); color: white; border-color: black;">Rojo</button>
                             </div>
                         </li>
                         <li>
-                            <button type="button" class="btn btn-primary" onclick="addToCart()">Agregar al Carrito</button>
+                            <button id="addToCartBtn" type="button" class="btn btn-primary"">Agregar al Carrito</button>
                         </li>
                     </ul>
                 </div>
