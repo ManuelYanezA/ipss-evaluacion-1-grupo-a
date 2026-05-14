@@ -22,3 +22,9 @@ function setNavbarTheme(theme) {
             console.log("Tema rojo aplicado");
         }
     }
+
+let cartCount = 0;
+function addToCart() {
+    cartCount++;
+    document.getElementById("cartItemCount").textContent = cartCount;
+}
