@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav id="mainNavbar" class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">DistribuidoresOnline</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -29,6 +29,13 @@
                                     0
                                 </span>
                             </a>
+                        </li>
+                        <li>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-dark" onclick="setNavbarTheme('light')">Claro</button>
+                                <button type="button" class="btn btn-dark" onclick="setNavbarTheme('dark')">Oscuro</button>
+                                <button type="button" class="btn text-white" style="background-color: rgb(180,35,35);" onclick="setNavbarTheme('red')">Rojo</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -172,6 +179,6 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="./js/main.js"></script>
 </body>
 </html>
