@@ -24,7 +24,9 @@ function setNavbarTheme(theme) {
     }
 
 let cartCount = 0;
-function addToCart() {
+const cartButton = document.getElementById("addToCartBtn");
+cartButton.addEventListener("click", () => {
     cartCount++;
     document.getElementById("cartItemCount").textContent = cartCount;
-}
+    console.log(`Producto agregado al carrito. Total: ${cartCount}`);
+});
