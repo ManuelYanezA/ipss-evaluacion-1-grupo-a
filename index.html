@@ -4,80 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <title>DistribuidorOnline</title>
     <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1 class="logo">DistribuidorOnline</h1>
-            <div class="busqueda-container">
-                <input type="text" placeholder="Búsqueda de Productos" class="barra-busqueda">
-                <button class="btn-buscar-producto">Buscar</button>
-            </div>
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DistribuidoresOnline</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mensajes</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#">
+          <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+      0
+    </span>
+  </a>
+</li>
 
-            <!-- Vendedores -->
-            <div class="vendedores-container">
-                <div class="container mt-5">
-                    <div class="row mt-3">
-                        <div class="col-md-3">
-                            <div class="card p-2 shadow-sm bg-light">
-                                <h8 class="text-center">Vendedor A</h8>
-                                <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm " style="background-color: rgb(180,35,35);" >Whatsapp</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card p-2 shadow-sm bg-light">
-                                <h8 class="text-center">Vendedor B</h8>
-                                <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm" style="background-color: rgb(180,35,35);">Whatsapp</a>
-                            </div>
-                        </div>
+      </ul>
+    </div>
+  </div>
+     <form class="d-flex">
+  <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">
+    <i class="bi bi-search"></i> Buscar
+  </button>
+</form>
+
+</nav>
+
+
+     
+
+    <main>
+        <div class="container mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <div class="card p-2 shadow-sm bg-light">
+                        <h8 class="text-center">Vendedor A</h8>
+                        <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm " style="background-color: red;">Whatsapp</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-2 shadow-sm bg-light">
+                        <h8 class="text-center">Vendedor B</h8>
+                        <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm" style="background-color: red;">Whatsapp</a>
                     </div>
                 </div>
             </div>
-                
         </div>
-    </header>
-    
+    </main>
     <main>
-        <h2>Recomendar Productos</h2>
-        <section class="productos-grid">
+        <section class="hero-container">
+            <div class="hero-content">
+                <h1 class="title">Todo lo que necesites lo encuentras aquí</h1>
+                <div class="hero-bottom-cta">
+                    <h2 class="subtitle">Con DistribuidorOnline no tendrás que preocuparte por buscar en múltiples tiendas</h2>
+                    <button class="call-to-action-btn">Ver Productos</button>
+                </div>
+            </div>
+            <!-- Carrusel con productos -->
+            <div class="carrusel-container">
+                <div class="carrusel">
 
-            <article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image"><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <h3>Mancuernas 2.5 Kg</h3><!-- Nombre del producto -->
-                <p>Mancuernas para realizar ejercicios de fortalecimiento muscular ligeros</p><!-- Descripción del producto -->
-                <p class="precio">$14.990</p><!-- Precio del producto -->
-            </article>
+                    <article class="hero-card">
+                        <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto Hero" class="producto-image">
+                        <h3>Producto 1</h3>
+                    </article>
 
-            <article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image"><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <h3>Lámpara estilo gótico</h3><!-- Nombre del producto -->
-                <p>Lámpara con un estilo gótico único para iluminar tu hogar</p><!-- Descripción del producto -->
-                <p class="precio">$19.990</p><!-- Precio del producto -->
-            </article>
+                    <article class="hero-card">
+                        <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto Hero" class="producto-image">
+                        <h3>Producto 2</h3>
+                    </article>
 
-            <article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image"><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <h3>Platos antiansiedad para mascotas</h3><!-- Nombre del producto -->
-                <p>Platos diseñados para reducir la ansiedad de tu mascota obligándole a comer más lentamente.</p><!-- Descripción del producto -->
-                <p class="precio">$9.990</p><!-- Precio del producto -->
-            </article>
+                    <article class="hero-card">
+                        <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto Hero" class="producto-image">
+                        <h3>Producto 3</h3>
+                    </article>
 
-            <article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image"><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <h3>Destornillador Phillips #2 38mm</h3><!-- Nombre del producto -->
-                <p>Destornillador de calidad para trabajos de reparación y mantenimiento.</p><!-- Descripción del producto -->
-                <p class="precio">$2.990</p><!-- Precio del producto -->
-            </article>
+                    <article class="hero-card">
+                        <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto Hero" class="producto-image">
+                        <h3>Producto 4</h3>
+                    </article>
 
-            <article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image"><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <h3>Compresor de aire miniatura</h3><!-- Nombre del producto -->
-                <p>Compresor de aire compacto para uso doméstico.</p><!-- Descripción del producto -->
-                <p class="precio">$22.990</p><!-- Precio del producto -->
-            </article>
+                    <article class="hero-card">
+                        <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto Hero" class="producto-image">
+                        <h3>Producto 5</h3>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="categorias-grid">
 
+            <!--<article class="producto-card">
+                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image">--><!-- Imagen del producto (Recordar cambiar el alt) -->
+                <!--<h3>Mancuernas 2.5 Kg</h3>--><!-- Nombre del producto -->
+                <!--<p>Mancuernas para realizar ejercicios de fortalecimiento muscular ligeros</p>--><!-- Descripción del producto -->
+                <!--<p class="precio">$14.990</p>--><!-- Precio del producto -->
+            <!--</article>-->
+            
+            <div class="card" style="width: 18rem;">
+                <a href="productos.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Hogar y Cocina">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Hogar y Cocina</h5>
+                    </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <a href="productos.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Deporte y Bienestar">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Deporte y Bienestar</h5>
+                    </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <a href="productos.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Herramientas y Ferretería">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Herramientas y Ferretería</h5>
+                    </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <a href="productos.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Mascotas">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Mascotas</h5>
+                    </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <a href="productos.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Para Bebés y Madres">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Para Bebés y Madres</h5>
+                    </div>
+            </div>
         </section>
     </main>
 
