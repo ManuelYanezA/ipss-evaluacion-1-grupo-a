@@ -6,6 +6,7 @@ const lightBtn = document.getElementById("lightThemeBtn");
 const darkBtn = document.getElementById("darkThemeBtn");
 const redBtn = document.getElementById("redThemeBtn");
 
+//En caso de que los botones no existan, se evita el error al agregar los event listeners
 if (lightBtn && darkBtn && redBtn) {
     lightBtn.addEventListener("click", () => {
         setNavbarTheme("light");
@@ -19,7 +20,8 @@ if (lightBtn && darkBtn && redBtn) {
         setNavbarTheme("red");
     });
 }
-    
+
+// Función para cambiar el tema de la barra de navegación
 function setNavbarTheme(theme) {
     const navbar = document.getElementById("mainNavbar");
     navbar.classList.remove(
@@ -44,6 +46,7 @@ function setNavbarTheme(theme) {
     }
 }
 
+// Función para agregar productos al carrito (simulada, solo suma 1 al número de productos en el carrito)
 let cartCount = 0;
 const cartButton = document.getElementById("addToCartBtn");
 if(cartButton) {
@@ -71,6 +74,7 @@ mostrarProductos("groceries");
 
 // Funciones para crear tarjetas de productos
 
+// Función para escapar caracteres especiales en HTML, para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
 function escapeHTML(str) {
     return String(str)
     .replaceAll('&', '&amp;')
@@ -80,6 +84,7 @@ function escapeHTML(str) {
     .replaceAll("'", '&#39;')
 }
 
+// Función para crear el HTML de una tarjeta de producto, usando la función de escapeHTML para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
 function crearTarjetaProductoHTML(producto) {
     return `
         <div class="producto-card h-100 shadow-sm">
@@ -94,6 +99,7 @@ function crearTarjetaProductoHTML(producto) {
     `
 }
 
+// Función para crear el HTML de una tarjeta de categoría, usando la función de escapeHTML para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
 function crearTarjetaCategoriaHTML(categoria) {
     return `
         <div class="card" style="width: 18rem;">
@@ -104,6 +110,7 @@ function crearTarjetaCategoriaHTML(categoria) {
         </div>`
 }
 
+// Función para renderizar los productos de una categoría en el contenedor correspondiente, mostrando un mensaje de carga mientras se obtienen los datos, y un mensaje de error si no se encuentran productos para esa categoría
 async function renderProductos(categoria)   {
     const contenedor = document.getElementById("productos");
     contenedor.textContent = "Cargando productos...";
@@ -118,4 +125,5 @@ async function renderProductos(categoria)   {
     contenedor.innerHTML = productos.map(crearTarjetaProductoHTML).join("");
 }
 
+// Renderizamos los productos de la categoría "groceries" al cargar la página, para mostrar algo de contenido, y también para probar que la función de renderizado funciona correctamente
 renderProductos("groceries");
