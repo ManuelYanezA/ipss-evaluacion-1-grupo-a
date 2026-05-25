@@ -1,4 +1,4 @@
-import { fetchCategorias } from "./api.js";
+import { fetchCategorias, fetchProductos } from "./api.js";
 
 console.log("Archivo main.js cargado correctamente");
 
@@ -53,10 +53,18 @@ if(cartButton) {
         console.log(`Producto agregado al carrito. Total: ${cartCount}`);
     });
 }
-    
+
+// Funciones de prueba, para mostrar categorías y productos en la consola
+
 async function mostrarCategorias() {
     const categorias = await fetchCategorias();
     console.log("Categorías obtenidas:", categorias);
 }
-
 mostrarCategorias();
+
+async function mostrarProductos(categoria) {
+    const productos = await fetchProductos(categoria);
+    console.log(`Productos en la categoría "${categoria}":`, productos);
+}
+mostrarProductos("beauty");
+mostrarProductos("groceries");
