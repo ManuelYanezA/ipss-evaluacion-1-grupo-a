@@ -45,6 +45,13 @@
     color: white;
     margin: 16px;
     border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-producto:hover {
+    background-color: white;
+    border-color: rgb(150, 30, 30);
+    color:rgb(150, 30, 30);
 }
 
 .carrusel-container {
