@@ -1,22 +1,29 @@
 .productos-grid{
     display: grid;
     grid-template-columns:
-        repeat(4, minmax(250px, 1fr));
+        repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 
     max-width: 1400px;
     margin: 0 auto;
+    padding: 2rem 2rem;
 }
 
 .producto-card {
-    width: 100%;
+    height: 100%;
+}
 
-    background-color: lightgray;
-    border-radius: 12px;
-
+.producto-card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+}
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.producto-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 16px;
 }
 
 .producto-image {

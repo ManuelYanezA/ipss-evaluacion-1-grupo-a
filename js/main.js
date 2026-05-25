@@ -82,11 +82,11 @@ function escapeHTML(str) {
 
 function crearTarjetaProductoHTML(producto) {
     return `
-        <div class="card" style="width: 18rem;">
-            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="...">
+        <div class="producto-card h-100 shadow-sm">
+            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Placeholder">
             <div class="card-body">
-                <h5 class="card-title">${escapeHTML(producto.title)}</h5>
-                <p class="card-text">${escapeHTML(producto.description)}</p>
+                <h5 class="producto-card-title">${escapeHTML(producto.title)}</h5>
+                <p class="producto-card-text">${escapeHTML(producto.description)}</p>
                 <p class="precio">$${escapeHTML(producto.price)}</p>
                 <button type="button" class="btn btn-producto shadow-none" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
             </div>
@@ -97,7 +97,7 @@ function crearTarjetaProductoHTML(producto) {
 function crearTarjetaCategoriaHTML(categoria) {
     return `
         <div class="card" style="width: 18rem;">
-            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="...">
+            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Placeholder">
             <div class="card-body">
                 <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
             </div>
