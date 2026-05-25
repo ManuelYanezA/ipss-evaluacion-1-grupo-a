@@ -83,9 +83,9 @@ function escapeHTML(str) {
 function crearTarjetaProductoHTML(producto) {
     return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">${escapeHTML(producto.name)}</h5>
+                <h5 class="card-title">${escapeHTML(producto.title)}</h5>
                 <p class="card-text">${escapeHTML(producto.description)}</p>
                 <button type="button" class="btn" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
             </div>
@@ -96,10 +96,25 @@ function crearTarjetaProductoHTML(producto) {
 function crearTarjetaCategoriaHTML(categoria) {
     return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
             </div>
-        </div>
-    `
+        </div>`
 }
+
+async function renderProductos(categoria)   {
+    const contenedor = document.getElementById("productos");
+    contenedor.textContent = "Cargando productos...";
+
+    const productos = await fetchProductos(categoria);
+
+    if(productos.length === 0) {
+        contenedor.textContent = "No se encontraron productos para esta categoría.";
+        return;
+    }
+
+    contenedor.innerHTML = productos.map(crearTarjetaProductoHTML).join("");
+}
+
+renderProductos("groceries");
