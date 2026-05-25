@@ -9,67 +9,73 @@
     <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
-   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">DistribuidoresOnline</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mensajes</a>
-        </li>
-        
-        
-        <li class="nav-item">
-          <a class="nav-link position-relative" href="#">
-          <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
-      0
-    </span>
-  </a>
-</li>
-
-      </ul>
-    </div>
-  </div>
-     <form class="d-flex">
-  <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
-  <button class="btn btn-outline-success" type="submit">
-    <i class="bi bi-search"></i> Buscar
-  </button>
-</form>
-
-</nav>
-
-
-     
-
-    <main>
-        <div class="container mt-5">
-            <div class="row mt-3">
+    <header>
+        <nav id="mainNavbar" class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">DistribuidoresOnline</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav align-items-center gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mensajes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="#">
+                                <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
+                                <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                                    0
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Botones de cambio de Tema de NavBar -->
+                        <li>
+                            <div class="d-flex gap-2">
+                                <button id="lightThemeBtn" type="button" class="btn btn-outline-dark" style="background-color: white; color: black; border-color:black;">Claro</button>
+                                <button id="darkThemeBtn" type="button" class="btn btn-dark" style="background-color: black; color: white; border-color: black;">Oscuro</button>
+                                <button id="redThemeBtn" type="button" class="btn text-white" style="background-color: rgb(180,35,35); color: white; border-color: black;">Rojo</button>
+                            </div>
+                        </li>
+                        <!-- Botón de Agregar al Carrito (Sólo suma 1 a la burbuja de cantidad de elementos en el carro)-->
+                        <li>
+                            <button id="addToCartBtn" type="button" class="btn btn-primary"">Agregar al Carrito</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Barra de búsqueda de productos -->
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="bi bi-search"></i> Buscar
+                </button>
+            </form>
+        </nav>
+        <div class="container mt-1" style="padding: 1rem;">
+            <div class="row mt-1">
                 <div class="col-md-3">
                     <div class="card p-2 shadow-sm bg-light">
-                        <h8 class="text-center">Vendedor A</h8>
+                        <h6 class="text-center">Vendedor A</h6>
                         <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm " style="background-color: red;">Whatsapp</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card p-2 shadow-sm bg-light">
-                        <h8 class="text-center">Vendedor B</h8>
+                        <h6 class="text-center">Vendedor B</h6>
                         <a href="https://wa.me/56991287230" target="_blank" class="btn btn-success btn-sm" style="background-color: red;">Whatsapp</a>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </header>
+    
     <main>
         <section class="hero-container">
             <div class="hero-content">
                 <h1 class="title">Todo lo que necesites lo encuentras aquí</h1>
                 <div class="hero-bottom-cta">
-                    <h2 class="subtitle">DistribuidoresOnline, somos tu socio mayorista</h2>
+                    <h2 class="subtitle">Con DistribuidorOnline no tendrás que preocuparte por buscar en múltiples tiendas</h2>
                     <button class="call-to-action-btn">Ver Productos</button>
                 </div>
             </div>
@@ -118,26 +124,6 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                        <div class="productos-slide">
-                            <div class="producto-destacado">
-                                <img src="./img/Placeholder-producto.jpg" alt="Producto 4">
-                                <h5>Escoba interiores</h5>
-                                <p>$9.990</p>
-                            </div>
-                            <div class="producto-destacado">
-                                <img src="./img/Placeholder-producto.jpg" alt="Producto 5">
-                                <h5>Manguera 3/4" 10 mts.</h5>
-                                <p>$34.990</p>
-                            </div>
-                            <div class="producto-destacado">
-                                <img src="./img/Placeholder-producto.jpg" alt="Producto 6">
-                                <h5>Maquina trotadora</h5>
-                                <p>$129.990</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -214,6 +200,6 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="./js/main.js"></script>
 </body>
 </html>
