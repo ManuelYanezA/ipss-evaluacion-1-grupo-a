@@ -1,19 +1,25 @@
+import { fetchCategorias } from "./api.js";
+
+console.log("Archivo main.js cargado correctamente");
+
 const lightBtn = document.getElementById("lightThemeBtn");
 const darkBtn = document.getElementById("darkThemeBtn");
 const redBtn = document.getElementById("redThemeBtn");
 
-lightBtn.addEventListener("click", () => {
-    setNavbarTheme("light");
-});
-
-darkBtn.addEventListener("click", () => {
-    setNavbarTheme("dark");
-});
-
-redBtn.addEventListener("click", () => {
-    setNavbarTheme("red");
-});
-
+if (lightBtn && darkBtn && redBtn) {
+    lightBtn.addEventListener("click", () => {
+        setNavbarTheme("light");
+    });
+    
+    darkBtn.addEventListener("click", () => {
+        setNavbarTheme("dark");
+    });
+    
+    redBtn.addEventListener("click", () => {
+        setNavbarTheme("red");
+    });
+}
+    
 function setNavbarTheme(theme) {
     const navbar = document.getElementById("mainNavbar");
     navbar.classList.remove(
@@ -40,8 +46,17 @@ function setNavbarTheme(theme) {
 
 let cartCount = 0;
 const cartButton = document.getElementById("addToCartBtn");
-cartButton.addEventListener("click", () => {
-    cartCount++;
-    document.getElementById("cartItemCount").textContent = cartCount;
-    console.log(`Producto agregado al carrito. Total: ${cartCount}`);
-});
+if(cartButton) {
+    cartButton.addEventListener("click", () => {
+        cartCount++;
+        document.getElementById("cartItemCount").textContent = cartCount;
+        console.log(`Producto agregado al carrito. Total: ${cartCount}`);
+    });
+}
+    
+async function mostrarCategorias() {
+    const categorias = await fetchCategorias();
+    console.log("Categorías obtenidas:", categorias);
+}
+
+mostrarCategorias();
