@@ -69,6 +69,8 @@ async function mostrarProductos(categoria) {
 mostrarProductos("beauty");
 mostrarProductos("groceries");
 
+// Funciones para crear tarjetas de productos
+
 function escapeHTML(str) {
     return String(str)
     .replaceAll('&', '&amp;')
@@ -76,4 +78,28 @@ function escapeHTML(str) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;')
+}
+
+function crearTarjetaProductoHTML(producto) {
+    return `
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${escapeHTML(producto.name)}</h5>
+                <p class="card-text">${escapeHTML(producto.description)}</p>
+                <button type="button" class="btn" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
+            </div>
+        </div>
+    `
+}
+
+function crearTarjetaCategoriaHTML(categoria) {
+    return `
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
+            </div>
+        </div>
+    `
 }
