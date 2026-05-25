@@ -39,6 +39,14 @@
     margin-top: 8px;
 }
 
+.btn-producto {
+    background-color: rgb(180, 35, 35);
+    border-color: rgb(180, 35, 35);
+    color: white;
+    margin: 16px;
+    border-radius: 8px;
+}
+
 .carrusel-container {
     flex: 1;
     overflow: hidden;

@@ -88,7 +88,7 @@ function crearTarjetaProductoHTML(producto) {
                 <h5 class="card-title">${escapeHTML(producto.title)}</h5>
                 <p class="card-text">${escapeHTML(producto.description)}</p>
                 <p class="precio">$${escapeHTML(producto.price)}</p>
-                <button type="button" class="btn" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
+                <button type="button" class="btn btn-producto shadow-none" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
             </div>
         </div>
     `
