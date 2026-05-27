@@ -11,29 +11,48 @@
     <body>
         <!-- Encabezado usado en Index, excepto botones de tema y sumar 1 a carrito -->
         <header>
-            <nav id="mainNavbar" class="navbar navbar-expand-sm navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">DistribuidoresOnline</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="navbar-nav align-items-center gap-4">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Mensajes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link position-relative" href="#">
-                                    <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
-                                    <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
-                                        0
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <nav id="mainNavbar" class="navbar navbar-expand-sm navbar-light-theme">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">DistribuidoresOnline</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav align-items-center gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Mensajes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="#">
+                                <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
+                                <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                                    0
+                                </span>
+                            </a>
+                        </li>
+                        <!-- Botones de cambio de Tema de NavBar -->
+                        <li>
+                            <div class="d-flex gap-2">
+                                <button id="lightThemeBtn" type="button" class="btn btn-outline-dark" style="background-color: white; color: black; border-color:black;">Claro</button>
+                                <button id="darkThemeBtn" type="button" class="btn btn-dark" style="background-color: black; color: white; border-color: black;">Oscuro</button>
+                                <button id="redThemeBtn" type="button" class="btn text-white" style="background-color: rgb(180,35,35); color: white; border-color: black;">Rojo</button>
+                            </div>
+                        </li>
+                        <!-- Botón de Agregar al Carrito (Sólo suma 1 a la burbuja de cantidad de elementos en el carro)-->
+                        <li>
+                            <button id="addToCartBtn" type="button" class="btn btn-primary"">Agregar al Carrito</button>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+            <!-- Barra de búsqueda de productos -->
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="bi bi-search"></i> Buscar
+                </button>
+            </form>
+        </nav>
         </header>
         <!-- Contenido principal -->
         <main class="container mt-4">
