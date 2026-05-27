@@ -22,7 +22,7 @@
                             <a class="nav-link" href="#">Mensajes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link position-relative" href="#">
+                            <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
                                 <i class="bi bi-cart4" style="font-size: 1.2rem;"></i>
                                 <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
                                     0
@@ -52,6 +52,20 @@
                 </button>
             </form>
         </nav>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Carrito</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="offcanvas">
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="cartItemsContainer">
+                    <p>El carrito está vacío.</p>
+                </div>
+            </div>
+        </div>
         <!-- Vendedores -->
         <div class="container mt-1" style="padding: 1rem;">
             <div class="row mt-1">
