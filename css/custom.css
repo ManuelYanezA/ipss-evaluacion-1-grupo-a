@@ -222,30 +222,30 @@
 
 /* Tema claro */
 .navbar-light-theme {
-    background-color: rgb(248,249,250) !important;
+    background-color: rgb(248,249,250);
 }
 
 .navbar-light-theme .nav-link,
 .navbar-light-theme .navbar-brand {
-    color: black !important;
+    color: black;
 }
 
 /* Tema oscuro */
 .navbar-dark-theme {
-    background-color: #212529 !important;
+    background-color: #212529;
 }
 
 .navbar-dark-theme .nav-link,
 .navbar-dark-theme .navbar-brand {
-    color: white !important;
+    color: white;
 }
 
 /* Tema rojo */
 .navbar-red-theme {
-    background-color: rgb(180,35,35) !important;
+    background-color: rgb(180,35,35);
 }
 
 .navbar-red-theme .nav-link,
 .navbar-red-theme .navbar-brand {
-    color: white !important;
+    color: white;
 }

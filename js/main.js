@@ -24,27 +24,26 @@ if (lightBtn && darkBtn && redBtn) {
 // Función para cambiar el tema de la barra de navegación
 function setNavbarTheme(theme) {
     const navbar = document.getElementById("mainNavbar");
+
     if(navbar) {
+
         navbar.classList.remove(
             "navbar-light-theme",
             "navbar-dark-theme",
-            "navbar-red-theme"
+            "navbar-red-theme",
+            "navbar-light",
+            "navbar-dark"
         );
-        
-        if (theme === "light") {
-            navbar.classList.add("navbar-light-theme");
-            console.log("Tema claro aplicado");
+
+        navbar.classList.add(`navbar-${theme}-theme`);
+
+        if(theme === "light") {
+            navbar.classList.add("navbar-light");
+        } else {
+            navbar.classList.add("navbar-dark");
         }
-        
-        if (theme === "dark") {
-            navbar.classList.add("navbar-dark-theme");
-            console.log("Tema oscuro aplicado");
-        }
-        
-        if (theme === "red") {
-            navbar.classList.add("navbar-red-theme");
-            console.log("Tema rojo aplicado");
-        }
+
+        localStorage.setItem("navbarTheme", theme);
     }
 }
 
@@ -149,4 +148,6 @@ async function renderCategorias()   {
     }
 }
 
+// Al cargar la página, se aplica el tema guardado en localStorage (o el tema claro por defecto) y se renderizan las categorías para mostrar algo de contenido, y también para probar que la función de renderizado funciona correctamente
+setNavbarTheme(localStorage.getItem("navbarTheme") || "light");
 renderCategorias();
