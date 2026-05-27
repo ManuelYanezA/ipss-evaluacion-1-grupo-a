@@ -48,7 +48,7 @@ function setNavbarTheme(theme) {
 }
 
 // Función para agregar productos al carrito (simulada, solo suma 1 al número de productos en el carrito)
-let cartCount = 0;
+/*let cartCount = 0;
 const cartButton = document.getElementById("addToCartBtn");
 if(cartButton) {
     cartButton.addEventListener("click", () => {
@@ -56,7 +56,68 @@ if(cartButton) {
         document.getElementById("cartItemCount").textContent = cartCount;
         console.log(`Producto agregado al carrito. Total: ${cartCount}`);
     });
+}*/
+
+let carrito = [];
+
+async function agregarAlCarrito(productoId) {
+
+    try {
+        const res = await fetch(`https://dummyjson.com/products/${productoId}`);
+        const producto = await res.json();
+        carrito.push(producto);
+    } catch (error) {
+        console.error("Error al agregar al carrito:", error);
+    }
+    actualizarCarrito();
+    console.log("Producto agregado:", producto);
 }
+
+function actualizarCarrito() {
+
+    const contador = document.getElementById("cartItemCount");
+    const contenedor = document.getElementById("cartItemsContainer");
+
+    if(contador && contenedor) {
+        contador.textContent = carrito.length;
+        
+        if(carrito.length === 0) {
+            contenedor.innerHTML = `
+            <p>El carrito está vacío.</p>
+            `;
+            return;
+        }
+        
+        contenedor.innerHTML = carrito.map((producto, index) => `
+        
+        <div class="border-bottom mb-3 pb-2">
+        
+        <h6>${escapeHTML(producto.title)}</h6>
+        
+        <p>$${escapeHTML(producto.price)}</p>
+        
+        <button
+        class="btn btn-sm btn-danger"
+        onclick="eliminarDelCarrito(${index})">
+        
+        Eliminar
+        
+        </button>
+        
+        </div>
+        
+        `).join("");
+    }
+}
+
+function eliminarDelCarrito(index) {
+
+    carrito.splice(index, 1);
+
+    actualizarCarrito();
+}
+
+window.eliminarDelCarrito = eliminarDelCarrito;
 
 // Funciones de prueba, para mostrar categorías y productos en la consola
 
