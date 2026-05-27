@@ -61,32 +61,6 @@
     color:rgb(150, 30, 30);
 }
 
-.carrusel-container {
-    flex: 1;
-    overflow: hidden;
-}
-
-.carrusel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding-bottom: 1rem;
-}
-
-.carrusel::-webkit-scrollbar {
-    display: none;
-}
-
-.carrusel {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
 .hero-card {
     min-width: 250px;
     background-color: white;
@@ -117,10 +91,35 @@
 }
 
 .hero-container {
-    max-width: 2700px;
+    max-width: 1440px;
     margin: 0 auto;
     background-color: rgb(180, 35, 35);
-    padding: 0 1rem;
+    padding: 30px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: 50px;
+    height: 50px;
+    
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    opacity: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .call-to-action-btn {
@@ -128,6 +127,7 @@
     padding: 0.75rem 1.5rem;
     background-color: rgb(255, 255, 255);
     color: rgb(180,35,35);
+    border-color: rgb(180,35,35);
     border-radius: 8px;
     font-weight: bold;
     margin-top: 1rem;
@@ -135,13 +135,59 @@
 }
 
 .call-to-action-btn:hover {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(180, 30, 30);
+    border-color: white;
+    color: white;
 }
 
 .hero-bottom-cta {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.carousel-item {
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carrusel-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.productos-slide {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto-destacado {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+}
+
+.producto-destacado img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto-destacado h5 {
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+.producto-destacado p {
+    color: rgb(180,35,35);
+    font-weight: bold;
 }
 
 .title {
@@ -158,12 +204,20 @@
 .categorias-grid{
     display: grid;
     grid-template-columns:
-        repeat(4, minmax(250px, 1fr));
+        repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 2rem;
+    padding: 2rem;
+}
+.categoria-card {
+    width:100%;
+}
+.categoria-card img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
 /* Tema claro */
