@@ -65,13 +65,19 @@ async function agregarAlCarrito(productoId) {
     try {
         const res = await fetch(`https://dummyjson.com/products/${productoId}`);
         const producto = await res.json();
+
         carrito.push(producto);
+
+        console.log("Producto agregado:", producto);
+
     } catch (error) {
         console.error("Error al agregar al carrito:", error);
     }
+
     actualizarCarrito();
-    console.log("Producto agregado:", producto);
 }
+
+window.agregarAlCarrito = agregarAlCarrito;
 
 function actualizarCarrito() {
 
