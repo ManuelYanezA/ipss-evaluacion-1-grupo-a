@@ -47,7 +47,11 @@ function setNavbarTheme(theme) {
     }
 }
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
 async function agregarAlCarrito(productoId) {
 
@@ -63,6 +67,7 @@ async function agregarAlCarrito(productoId) {
         console.error("Error al agregar al carrito:", error);
     }
 
+    guardarCarrito();
     actualizarCarrito();
 }
 
@@ -94,6 +99,7 @@ function eliminarDelCarrito(index) {
 
     carrito.splice(index, 1);
 
+    guardarCarrito();
     actualizarCarrito();
 }
 
@@ -209,3 +215,5 @@ async function renderCategorias()   {
 setNavbarTheme(localStorage.getItem("navbarTheme") || "light");
 // Se renderizan las categorías al cargar la página
 renderCategorias();
+// Actualizamos el estado del carrito al principio, en caso de existir datos en localStorage
+actualizarCarrito();
