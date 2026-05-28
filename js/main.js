@@ -119,34 +119,27 @@ async function renderProductos(categoria)   {
 // Renderizamos los productos de la categoría "groceries" al cargar la página, para mostrar algo de contenido, y también para probar que la función de renderizado funciona correctamente
 renderProductos("groceries");
 
-// Función para crear el HTML de una tarjeta de categoría, usando la función de escapeHTML para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
-function crearTarjetaCategoriaHTML(categoria) {
-    return `
-            <div class="card">
-                <a href="products.html">
-                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría ${escapeHTML(categoria.name)}">
-                </a>
-                    <div class="card-body">
-                        <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
-                    </div>
-            </div>`
+// Esta función se activa cada vez que aprietan el botón de una tarjeta
+function agregarAlCarrito(idProducto) {
+    // 1. Intentamos traer los pedidos que ya existan guardados, si no hay ninguno, empezamos con una lista vacía []
+    let carrito = JSON.parse(localStorage.getItem("carrito_pedidos")) || [];
+
+    // 2. Agregamos el nuevo ID del producto a nuestra lista
+    // (Opcional: podrías buscar si ya existe para sumarle cantidad, aquí lo agregamos directo)
+    carrito.push({
+        id: idProducto,
+        cantidad: 1,
+        fecha: new Date().toLocaleDateString()
+    });
+
+    // 3. Guardamos la lista actualizada en el localStorage convertida en texto
+    localStorage.setItem("carrito_pedidos", JSON.stringify(carrito));
+
+    // 4. Un aviso visual para que el cliente sepa que funcionó
+    alert("¡Producto añadido al pedido!");
 }
 
-async function renderCategorias()   {
-    const contenedor = document.getElementById("container-categorias");
-    console.log("Contenedor de categorías:", contenedor);
-    if(contenedor) {
-        contenedor.textContent = "Cargando categorías...";
-        
-        const categorias = await fetchCategorias();
-        
-        if(categorias.length === 0) {
-            contenedor.textContent = "No se encontraron categorías.";
-            return;
-        }
-        
-        contenedor.innerHTML = categorias.map(crearTarjetaCategoriaHTML).join("");
-    }
-}
+// IMPORTANTE: Si usas type="module" en tu HTML, los módulos aíslan las funciones.
+// Para que el 'onclick' del HTML pueda ver la función, debes colgarla de la ventana global de esta forma:
+window.agregarAlCarrito = agregarAlCarrito;
 
-renderCategorias();
