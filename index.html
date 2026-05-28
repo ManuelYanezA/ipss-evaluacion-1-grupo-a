@@ -77,11 +77,10 @@
             <div class="hero-content">
                 <h1 class="title">Todo lo que necesites lo encuentras aquí</h1>
                 <div class="hero-bottom-cta">
-                    <h2 class="subtitle">Con DistribuidorOnline no tendrás que preocuparte por buscar en múltiples tiendas</h2>
+                    <h2 class="subtitle">DistribuidoresOnline, somos tu socio mayorista</h2>
                     <a href="products.html" class="btn btn-primary call-to-action-btn">Ver Productos</a>
                 </div>
             </div>
-            <!-- Carrusel destacados -->
             <div id="carousel-destacados" class="carousel slide carrusel-container" data-bs-ride="carousel" data-bs-interval="7000">
                 <div class="carousel-inner">
                     <!-- Slide 1 -->
@@ -126,48 +125,69 @@
                         </div>
                     </div>
                     
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="productos-slide">
+                            <div class="producto-destacado">
+                                <img src="./img/Placeholder-producto.jpg" alt="Producto 4">
+                                <h5>Escoba interiores</h5>
+                                <p>$9.990</p>
+                            </div>
+                            <div class="producto-destacado">
+                                <img src="./img/Placeholder-producto.jpg" alt="Producto 5">
+                                <h5>Manguera 3/4" 10 mts.</h5>
+                                <p>$34.990</p>
+                            </div>
+                            <div class="producto-destacado">
+                                <img src="./img/Placeholder-producto.jpg" alt="Producto 6">
+                                <h5>Maquina trotadora</h5>
+                                <p>$129.990</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-destacados" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel-destacados" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </section>
         <!-- Sección de categorías de productos -->
-        <section class="categorias-grid">
+        <section class="categorias-grid" id="container-categorias">
 
-            <!--<article class="producto-card">
-                <img src="./img/Placeholder producto.jpg" alt="Placeholder Producto" class="producto-image">--><!-- Imagen del producto (Recordar cambiar el alt) -->
-                <!--<h3>Mancuernas 2.5 Kg</h3>--><!-- Nombre del producto -->
-                <!--<p>Mancuernas para realizar ejercicios de fortalecimiento muscular ligeros</p>--><!-- Descripción del producto -->
-                <!--<p class="precio">$14.990</p>--><!-- Precio del producto -->
-            <!--</article>-->
-            
-            <div class="card" style="width: 18rem;">
-                <a href="productos.html">
-                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Hogar y Cocina">
-                </a>
+                <div class="card">
+                    <a href="products.html">
+                        <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Hogar y Cocina">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Hogar y Cocina</h5>
                     </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <a href="productos.html">
-                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Deporte y Bienestar">
-                </a>
+                </div>
+                
+                <div class="card">
+                    <a href="products.html">
+                        <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Deporte y Bienestar">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Deporte y Bienestar</h5>
                     </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <a href="productos.html">
-                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Herramientas y Ferretería">
-                </a>
+                </div>
+                
+                <div class="card">
+                    <a href="products.html">
+                        <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Herramientas y Ferretería">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">Herramientas y Ferretería</h5>
                     </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <a href="productos.html">
+            <div class="card">
+                <a href="products.html">
                     <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Mascotas">
                 </a>
                     <div class="card-body">
@@ -175,8 +195,8 @@
                     </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <a href="productos.html">
+            <div class="card">
+                <a href="products.html">
                     <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría Para Bebés y Madres">
                 </a>
                     <div class="card-body">
