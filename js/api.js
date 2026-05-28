@@ -10,11 +10,12 @@ export async function fetchCategorias() {
         const data = await res.json()
         return data
     } catch (err) {
-        console.error('Error al obtener productos:', err)
+        console.error('Error al obtener categorías:', err)
         return []
     } finally {
         console.log('Petición a la API finalizada')
         console.log('URL solicitada:', url)
+        console.log('Categorías obtenidas')
     }
 }
 
