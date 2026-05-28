@@ -47,17 +47,6 @@ function setNavbarTheme(theme) {
     }
 }
 
-// Función para agregar productos al carrito (simulada, solo suma 1 al número de productos en el carrito)
-/*let cartCount = 0;
-const cartButton = document.getElementById("addToCartBtn");
-if(cartButton) {
-    cartButton.addEventListener("click", () => {
-        cartCount++;
-        document.getElementById("cartItemCount").textContent = cartCount;
-        console.log(`Producto agregado al carrito. Total: ${cartCount}`);
-    });
-}*/
-
 let carrito = [];
 
 async function agregarAlCarrito(productoId) {
@@ -77,8 +66,6 @@ async function agregarAlCarrito(productoId) {
     actualizarCarrito();
 }
 
-window.agregarAlCarrito = agregarAlCarrito;
-
 function actualizarCarrito() {
 
     const contador = document.getElementById("cartItemCount");
@@ -86,32 +73,19 @@ function actualizarCarrito() {
 
     if(contador && contenedor) {
         contador.textContent = carrito.length;
-        
         if(carrito.length === 0) {
             contenedor.innerHTML = `
-            <p>El carrito está vacío.</p>
+                <p>El carrito está vacío.</p>
             `;
             return;
         }
-        
+
         contenedor.innerHTML = carrito.map((producto, index) => `
-        
-        <div class="border-bottom mb-3 pb-2">
-        
-        <h6>${escapeHTML(producto.title)}</h6>
-        
-        <p>$${escapeHTML(producto.price)}</p>
-        
-        <button
-        class="btn btn-sm btn-danger"
-        onclick="eliminarDelCarrito(${index})">
-        
-        Eliminar
-        
-        </button>
-        
-        </div>
-        
+            <div class="border-bottom mb-3 pb-2">
+                <h6>${escapeHTML(producto.title)}</h6>
+                <p>$${escapeHTML(producto.price)}</p>
+                <button class="btn btn-sm btn-danger btn-eliminar-producto" data-index="${index}">Eliminar</button>
+            </div>
         `).join("");
     }
 }
@@ -123,10 +97,7 @@ function eliminarDelCarrito(index) {
     actualizarCarrito();
 }
 
-window.eliminarDelCarrito = eliminarDelCarrito;
-
 // Funciones de prueba, para mostrar categorías y productos en la consola
-
 async function mostrarCategorias() {
     const categorias = await fetchCategorias();
     console.log("Categorías obtenidas:", categorias);
@@ -137,8 +108,6 @@ async function mostrarProductos(categoria) {
     const productos = await fetchProductos(categoria);
     console.log(`Productos en la categoría "${categoria}":`, productos);
 }
-
-// Funciones para crear tarjetas de productos
 
 // Función para escapar caracteres especiales en HTML, para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
 function escapeHTML(str) {
@@ -159,11 +128,31 @@ function crearTarjetaProductoHTML(producto) {
                 <h5 class="producto-card-title">${escapeHTML(producto.title)}</h5>
                 <p class="producto-card-text">${escapeHTML(producto.description)}</p>
                 <p class="precio">$${escapeHTML(producto.price)}</p>
-                <button type="button" class="btn btn-producto shadow-none" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
+                <button type="button" class="btn btn-producto shadow-none btn-agregar-carrito" data-id="${escapeHTML(producto.id)}">Agregar al carrito</button>
             </div>
         </div>
     `
 }
+
+// Evento para manejar los click en botones de agregar y eliminar del carrito
+document.addEventListener("click", (e) => {
+
+    // Agregar productos
+    if(e.target.matches(".btn-agregar-carrito")) {
+
+        const productoId = e.target.dataset.id;
+
+        agregarAlCarrito(productoId);
+    }
+
+    // Eliminar productos
+    if(e.target.matches(".btn-eliminar-producto")) {
+
+        const index = e.target.dataset.index;
+
+        eliminarDelCarrito(index);
+    }
+});
 
 // Función para renderizar los productos de una categoría en el contenedor correspondiente, mostrando un mensaje de carga mientras se obtienen los datos, y un mensaje de error si no se encuentran productos para esa categoría
 async function renderProductos(categoria)   {
@@ -198,6 +187,7 @@ function crearTarjetaCategoriaHTML(categoria) {
             </div>`
 }
 
+// Función para renderizar las categorías en el contenedor correspondiente
 async function renderCategorias()   {
     const contenedor = document.getElementById("container-categorias");
     console.log("Contenedor de categorías:", contenedor);
@@ -215,6 +205,7 @@ async function renderCategorias()   {
     }
 }
 
-// Al cargar la página, se aplica el tema guardado en localStorage (o el tema claro por defecto) y se renderizan las categorías para mostrar algo de contenido, y también para probar que la función de renderizado funciona correctamente
+// Al cargar la página, se aplica el tema guardado en localStorage (o el tema claro por defecto)
 setNavbarTheme(localStorage.getItem("navbarTheme") || "light");
+// Se renderizan las categorías al cargar la página
 renderCategorias();
