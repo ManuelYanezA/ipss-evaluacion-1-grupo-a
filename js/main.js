@@ -1,4 +1,4 @@
-import { fetchCategorias, fetchProductos } from "./api.js";
+import { fetchCategorias, fetchProductos, fetchProductosBusqueda } from "./api.js";
 
 console.log("Archivo main.js cargado correctamente");
 
@@ -173,18 +173,6 @@ async function buscarCategorias(textoBusqueda) {
 
 async function buscarProductos(textoBusqueda) {
     try {
-        const productos = await fetchProductos();
-        const productosFiltrados = productos.filter(producto =>
-            producto.title.toLowerCase().includes(textoBusqueda)
-        );
-        console.log(productosFiltrados);
-    } catch (error) {
-        console.error("Error al buscar productos:", error);
-    }
-}
-
-async function buscarProductos(textoBusqueda) {
-    try {
         const productos = await fetchProductosBusqueda(textoBusqueda);
         const contenedor = document.getElementById("productos");      
         if(contenedor) {
@@ -201,6 +189,9 @@ async function buscarProductos(textoBusqueda) {
         console.error("Error al buscar productos:", error);
     }
 }
+
+const contenedorCategorias = document.getElementById("categorias");
+const contenedorProductos = document.getElementById("productos");
 
 if(searchForm && searchInput) {
 
