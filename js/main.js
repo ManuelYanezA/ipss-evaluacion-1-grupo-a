@@ -2,9 +2,14 @@ import { fetchCategorias, fetchProductos } from "./api.js";
 
 console.log("Archivo main.js cargado correctamente");
 
+//Obtiene los temas del DOM
 const lightBtn = document.getElementById("lightThemeBtn");
 const darkBtn = document.getElementById("darkThemeBtn");
 const redBtn = document.getElementById("redThemeBtn");
+
+//Obtiene los componentes del formulario de búsqueda del DOM
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
 
 //En caso de que los botones no existan, se evita el error al agregar los event listeners
 if (lightBtn && darkBtn && redBtn) {
@@ -137,6 +142,92 @@ function agregarAlCarrito(idProducto) {
 
     // 4. Un aviso visual para que el cliente sepa que funcionó
     alert("¡Producto añadido al pedido!");
+}
+
+// Función para manejar el envío del formulario de búsqueda, obteniendo el texto ingresado, limpiándolo y mostrándolo en la consola
+if(searchForm && searchInput) {
+
+    searchForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const textoBusqueda = searchInput.value.trim().toLowerCase();
+
+        console.log("Texto buscado:", textoBusqueda);
+
+    });
+
+}
+
+async function buscarCategorias(textoBusqueda) {
+    try {
+        const categorias = await fetchCategorias();
+        const categoriasFiltradas = categorias.filter(categoria =>
+            categoria.toLowerCase().includes(textoBusqueda)
+        );
+        console.log(categoriasFiltradas);
+    } catch (error) {
+        console.error("Error al buscar categorías:", error);
+    }
+}
+
+async function buscarProductos(textoBusqueda) {
+    try {
+        const productos = await fetchProductos();
+        const productosFiltrados = productos.filter(producto =>
+            producto.title.toLowerCase().includes(textoBusqueda)
+        );
+        console.log(productosFiltrados);
+    } catch (error) {
+        console.error("Error al buscar productos:", error);
+    }
+}
+
+async function buscarProductos(textoBusqueda) {
+    try {
+        const productos = await fetchProductosBusqueda(textoBusqueda);
+        const contenedor = document.getElementById("productos");      
+        if(contenedor) {
+            if(productos.length === 0) {
+                contenedor.textContent = "No se encontraron productos.";
+                return;
+            }
+            
+            contenedor.innerHTML = productos
+            .map(crearTarjetaProductoHTML)
+            .join("");
+        }
+    } catch (error) {
+        console.error("Error al buscar productos:", error);
+    }
+}
+
+if(searchForm && searchInput) {
+
+    searchForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const textoBusqueda = searchInput.value.trim().toLowerCase();
+
+        if(contenedorCategorias) {
+
+            buscarCategorias(textoBusqueda);
+
+        } else {
+            console.log("No se encuentra contenedor de categorías en el DOM");
+        }
+
+        if(contenedorProductos) {
+
+            buscarProductos(textoBusqueda);
+
+        } else {
+            console.log("No se encuentra contenedor de productos en el DOM");
+        }
+
+    });
+
 }
 
 // IMPORTANTE: Si usas type="module" en tu HTML, los módulos aíslan las funciones.
