@@ -190,6 +190,37 @@ async function buscarProductos(textoBusqueda) {
     }
 }
 
+// Función para crear el HTML de una tarjeta de categoría, usando la función de escapeHTML para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
+function crearTarjetaCategoriaHTML(categoria) {
+    return `
+            <div class="card">
+                <a href="products.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría ${escapeHTML(categoria.name)}">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
+                    </div>
+            </div>`
+}
+
+// Función para renderizar las categorías en el contenedor correspondiente
+async function renderCategorias()   {
+    const contenedor = document.getElementById("container-categorias");
+    console.log("Contenedor de categorías:", contenedor);
+    if(contenedor) {
+        contenedor.textContent = "Cargando categorías...";
+        
+        const categorias = await fetchCategorias();
+        
+        if(categorias.length === 0) {
+            contenedor.textContent = "No se encontraron categorías.";
+            return;
+        }
+        
+        contenedor.innerHTML = categorias.map(crearTarjetaCategoriaHTML).join("");
+    }
+}
+
 const contenedorCategorias = document.getElementById("categorias");
 const contenedorProductos = document.getElementById("productos");
 
