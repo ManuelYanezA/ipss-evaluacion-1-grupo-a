@@ -255,4 +255,4 @@ if(searchForm && searchInput) {
 // IMPORTANTE: Si usas type="module" en tu HTML, los módulos aíslan las funciones.
 // Para que el 'onclick' del HTML pueda ver la función, debes colgarla de la ventana global de esta forma:
 window.agregarAlCarrito = agregarAlCarrito;
-
+renderCategorias();
