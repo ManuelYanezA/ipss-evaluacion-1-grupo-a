@@ -39,3 +39,14 @@ export async function fetchProductos(categoria) {
         console.log('URL solicitada:', url)
     }
 }
+
+export async function fetchProductosBusqueda(textoBusqueda) {
+    try {
+        const response = await fetch(`https://dummyjson.com/products/search?q=${textoBusqueda}`);
+        const data = await response.json();
+        return data.products;
+    } catch (error) {
+        console.error('Error al buscar productos:', error);
+        return [];
+    }
+}

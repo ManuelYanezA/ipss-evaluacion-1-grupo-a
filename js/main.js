@@ -1,10 +1,15 @@
-import { fetchCategorias, fetchProductos } from "./api.js";
+import { fetchCategorias, fetchProductos, fetchProductosBusqueda } from "./api.js";
 
 console.log("Archivo main.js cargado correctamente");
 
+//Obtiene los temas del DOM
 const lightBtn = document.getElementById("lightThemeBtn");
 const darkBtn = document.getElementById("darkThemeBtn");
 const redBtn = document.getElementById("redThemeBtn");
+
+//Obtiene los componentes del formulario de búsqueda del DOM
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
 
 //En caso de que los botones no existan, se evita el error al agregar los event listeners
 if (lightBtn && darkBtn && redBtn) {
@@ -139,7 +144,115 @@ function agregarAlCarrito(idProducto) {
     alert("¡Producto añadido al pedido!");
 }
 
+// Función para manejar el envío del formulario de búsqueda, obteniendo el texto ingresado, limpiándolo y mostrándolo en la consola
+if(searchForm && searchInput) {
+
+    searchForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const textoBusqueda = searchInput.value.trim().toLowerCase();
+
+        console.log("Texto buscado:", textoBusqueda);
+
+    });
+
+}
+
+async function buscarCategorias(textoBusqueda) {
+    try {
+        const categorias = await fetchCategorias();
+        const categoriasFiltradas = categorias.filter(categoria =>
+            categoria.toLowerCase().includes(textoBusqueda)
+        );
+        console.log(categoriasFiltradas);
+    } catch (error) {
+        console.error("Error al buscar categorías:", error);
+    }
+}
+
+async function buscarProductos(textoBusqueda) {
+    try {
+        const productos = await fetchProductosBusqueda(textoBusqueda);
+        const contenedor = document.getElementById("productos");      
+        if(contenedor) {
+            if(productos.length === 0) {
+                contenedor.textContent = "No se encontraron productos.";
+                return;
+            }
+            
+            contenedor.innerHTML = productos
+            .map(crearTarjetaProductoHTML)
+            .join("");
+        }
+    } catch (error) {
+        console.error("Error al buscar productos:", error);
+    }
+}
+
+// Función para crear el HTML de una tarjeta de categoría, usando la función de escapeHTML para evitar problemas de seguridad y formato, código puesto en enunciado de la evaluación
+function crearTarjetaCategoriaHTML(categoria) {
+    return `
+            <div class="card">
+                <a href="products.html">
+                    <img src="./img/Placeholder-producto.jpg" class="card-img-top" alt="Categoría ${escapeHTML(categoria.name)}">
+                </a>
+                    <div class="card-body">
+                        <h5 class="card-title">${escapeHTML(categoria.name)}</h5>
+                    </div>
+            </div>`
+}
+
+// Función para renderizar las categorías en el contenedor correspondiente
+async function renderCategorias()   {
+    const contenedor = document.getElementById("container-categorias");
+    console.log("Contenedor de categorías:", contenedor);
+    if(contenedor) {
+        contenedor.textContent = "Cargando categorías...";
+        
+        const categorias = await fetchCategorias();
+        
+        if(categorias.length === 0) {
+            contenedor.textContent = "No se encontraron categorías.";
+            return;
+        }
+        
+        contenedor.innerHTML = categorias.map(crearTarjetaCategoriaHTML).join("");
+    }
+}
+
+const contenedorCategorias = document.getElementById("categorias");
+const contenedorProductos = document.getElementById("productos");
+
+if(searchForm && searchInput) {
+
+    searchForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const textoBusqueda = searchInput.value.trim().toLowerCase();
+
+        if(contenedorCategorias) {
+
+            buscarCategorias(textoBusqueda);
+
+        } else {
+            console.log("No se encuentra contenedor de categorías en el DOM");
+        }
+
+        if(contenedorProductos) {
+
+            buscarProductos(textoBusqueda);
+
+        } else {
+            console.log("No se encuentra contenedor de productos en el DOM");
+        }
+
+    });
+
+}
+
 // IMPORTANTE: Si usas type="module" en tu HTML, los módulos aíslan las funciones.
 // Para que el 'onclick' del HTML pueda ver la función, debes colgarla de la ventana global de esta forma:
 window.agregarAlCarrito = agregarAlCarrito;
-
+renderCategorias();
