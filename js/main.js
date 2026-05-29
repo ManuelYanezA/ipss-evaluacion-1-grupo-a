@@ -98,7 +98,7 @@ function crearTarjetaProductoHTML(producto) {
                 <h5 class="producto-card-title">${escapeHTML(producto.title)}</h5>
                 <p class="producto-card-text">${escapeHTML(producto.description)}</p>
                 <p class="precio">$${escapeHTML(producto.price)}</p>
-                <button type="button" class="btn btn-producto shadow-none" onclick="agregarAlCarrito(${escapeHTML(producto.id)})">Agregar al carrito</button>
+                <button type="button" class="btn btn-producto shadow-none" onclick="agregarAlCarrito(${escapeHTML(producto.id)}, '${escapeHTML(producto.title)}')">Agregar al carrito</button>
             </div>
         </div>
     `
@@ -125,7 +125,7 @@ async function renderProductos(categoria)   {
 renderProductos("groceries");
 
 // Esta función se activa cada vez que aprietan el botón de una tarjeta
-function agregarAlCarrito(idProducto) {
+function agregarAlCarrito(idProducto, nombreProducto) {
     // 1. Intentamos traer los pedidos que ya existan guardados, si no hay ninguno, empezamos con una lista vacía []
     let carrito = JSON.parse(localStorage.getItem("carrito_pedidos")) || [];
 
@@ -133,6 +133,7 @@ function agregarAlCarrito(idProducto) {
     // (Opcional: podrías buscar si ya existe para sumarle cantidad, aquí lo agregamos directo)
     carrito.push({
         id: idProducto,
+        nombre: nombreProducto,
         cantidad: 1,
         fecha: new Date().toLocaleDateString()
     });
